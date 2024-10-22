@@ -15,14 +15,14 @@ namespace dx_engine {
         wc.lpszClassName = L"dx_engine";
 
         HWND win = CreateWindowEx(
-            NULL, wc.lpszClassName, L"engine", WS_OVERLAPPEDWINDOW, 0, 0, 800, 600, nullptr, nullptr, nullptr, nullptr );
-
-        symbols->window = win;
+            NULL, wc.lpszClassName, L"engine", WS_OVERLAPPEDWINDOW, 0, 0, symbols->width, symbols->height, nullptr, nullptr, nullptr, nullptr );
 
         if ( !win ) {
             MessageBoxA( nullptr, "Error", "Cannot create a window handle [CreateWindowEx]", 0 );
             return false;
         }
+
+        symbols->window = win;
 
         this->run( );
         return true;
@@ -46,7 +46,6 @@ namespace dx_engine {
             }
 
             this->render( );
-
         }
     }
     LRESULT engine_t::callback( HWND win, UINT msg, WPARAM w_param, LPARAM l_param ) {

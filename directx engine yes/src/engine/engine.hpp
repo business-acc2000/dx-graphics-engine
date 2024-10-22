@@ -9,6 +9,9 @@ namespace dx_engine {
         HWND window = nullptr;
         bool is_running = true;
 
+        int width = 800;
+        int height = 600;
+
         // Common and useful practice, could always add more variables
     };
     class engine_t {
